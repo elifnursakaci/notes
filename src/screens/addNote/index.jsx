@@ -4,31 +4,44 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {AppColors} from '../../theme/colors';
 import Button from '../../components/uı/button';
 import {screenStyle} from '../../styles/screenStyle';
+import EditBottons from '../../components/addNote/editBottons';
 
 const AddNote = ({route}) => {
   return (
     <SafeAreaView style={screenStyle.container}>
-      <View styles={screenStyle.container}>
-        <View></View>
-
-        <View style={{flex: 1, backgroundColor: 'red'}}>
+      <View style={screenStyle.container}>
+        <View style={{flex: 1}}>
+          <Text style={{fontSize: 24, fontWeight: 'bold'}}>Başlık</Text>
           <TextInput
-            placeholder="Lütfen notunuzu bu alanaa yazınız."
-            value=""
+            placeholder="Lütfen Başlık yazınız."
             style={{
-              flex: 1,
               backgroundColor: AppColors.WHITE,
               borderWidth: 1,
               padding: 5,
-              margin: 8,
+              margin: 2,
               borderRadius: 5,
               borderColor: AppColors.GRAY,
+              height: 60,
+            }}
+          />
+          <Text style={{fontSize: 24}}>Açıklama</Text>
+          <TextInput
+            placeholder="Lütfen Açıklama yazınız."
+            style={{
+              backgroundColor: AppColors.WHITE,
+              borderWidth: 1,
+              padding: 5,
+              margin: 2,
+              borderRadius: 5,
+              borderColor: AppColors.GRAY,
+              height: 130,
             }}
           />
         </View>
-
         <View>
-          <Button title="Save Changes" onPress></Button>
+          <Button
+            title="Save Changes"
+            onPress={() => console.log('Button pressed')}></Button>
         </View>
       </View>
     </SafeAreaView>

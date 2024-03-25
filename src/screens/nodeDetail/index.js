@@ -1,25 +1,79 @@
-//import liraries
-import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React from 'react';
+import {View, Text, StyleSheet, TextInput} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {AppColors} from '../../theme/colors';
+import Button from '../../components/uı/button';
+import {screenStyle} from '../../styles/screenStyle';
+import EditBottons from '../../components/addNote/editBottons';
 
-// create a component
-const NoteDetail = () => {
+const NoteDetail = ({route}) => {
+  const {note} = route?.params;
   return (
-    <View style={styles.container}>
-      <Text>NoteDetail</Text>
-    </View>
+    <SafeAreaView style={screenStyle.container}>
+      <View style={screenStyle.container}>
+        <View>
+          <EditBottons />
+        </View>
+
+        <View style={{flex: 1}}>
+          <View style={{}}>
+            <Text style={{fontWeight: 'bold', fontSize: 30}}></Text>
+            <Text
+              style={{
+                fontWeight: 500,
+                fontSize: 30,
+                color: AppColors.PRIMARY,
+                marginVertical: 5,
+              }}>
+              {note.title}
+            </Text>
+          </View>
+
+          <View style={{}}>
+            <Text style={{fontWeight: 'bold', fontSize: 30}}></Text>
+            <Text
+              style={{
+                fontWeight: 300,
+                fontSize: 18,
+                color: AppColors.SECONDARY,
+              }}>
+              {note.description}
+            </Text>
+          </View>
+        </View>
+
+        <View>
+          <Button
+            title="Save Changes"
+            onPress={() => console.log('Button pressed')}></Button>
+        </View>
+      </View>
+    </SafeAreaView>
   );
 };
 
-// define your styles
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FFFF',
+    backgroundColor: AppColors.SCREENBACKGROUNDCOLOR,
+  },
+  bold: {
+    fontWeight: 'bold',
+  },
+  italik: {
+    fontStyle: 'italic',
+  },
+  textUnderline: {
+    textDecorationLine: 'underline',
+  },
+  left: {
+    textAlign: 'left',
+  },
+  center: {
+    textAlign: 'center',
+  },
+  right: {
+    textAlign: 'right',
   },
 });
 
-//make this component available to the app
 export default NoteDetail;

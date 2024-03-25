@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingVertical: 15,
     borderRadius: 5,
-    top: 700,
   },
   title: {
     color: AppColors.WHITE,
